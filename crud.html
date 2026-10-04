@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>도서관리 | 작은 도서관</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <header>
@@ -14,7 +14,7 @@
         <nav aria-label="주 메뉴">
           <a href="index.html">홈</a>
           <a href="js_dynamic.html">DOM 연습</a>
-          <a href="crud.html">도서관리</a>
+          <a href="crud.html" aria-current="page">도서관리</a>
         </nav>
       </div>
     </header>
@@ -26,16 +26,33 @@
       </section>
       <section class="panel">
         <h2 id="form-heading">도서 등록</h2>
-        <p class="note">모든 항목을 입력하세요. 가격은 0~1,000,000원의 정수입니다.</p>
+        <p class="note">
+          모든 항목을 입력하세요. 가격은 0~1,000,000원의 정수입니다.
+        </p>
         <form id="book-form" novalidate>
           <div class="form-grid">
             <div>
               <label for="title">도서명</label>
-              <input id="title" name="title" type="text" required minlength="2" maxlength="100" placeholder="2~100자">
+              <input
+                id="title"
+                name="title"
+                type="text"
+                required
+                minlength="2"
+                maxlength="100"
+                placeholder="2~100자"
+              />
             </div>
             <div>
               <label for="author">저자</label>
-              <input id="author" name="author" type="text" required maxlength="50" placeholder="저자 이름">
+              <input
+                id="author"
+                name="author"
+                type="text"
+                required
+                maxlength="50"
+                placeholder="저자 이름"
+              />
             </div>
             <div>
               <label for="category">분류</label>
@@ -50,16 +67,34 @@
             </div>
             <div>
               <label for="publisher">출판사</label>
-              <input id="publisher" name="publisher" type="text" required maxlength="50" placeholder="출판사 이름">
+              <input
+                id="publisher"
+                name="publisher"
+                type="text"
+                required
+                maxlength="50"
+                placeholder="출판사 이름"
+              />
             </div>
             <div>
               <label for="price">가격 (원)</label>
-              <input id="price" name="price" type="number" required min="0" max="1000000" step="1" placeholder="예: 15000">
+              <input
+                id="price"
+                name="price"
+                type="number"
+                required
+                min="0"
+                max="1000000"
+                step="1"
+                placeholder="예: 15000"
+              />
             </div>
           </div>
           <div class="actions">
             <button type="submit" id="save-button">도서 추가</button>
-            <button type="button" id="reset-button" class="secondary">입력 초기화</button>
+            <button type="button" id="reset-button" class="secondary">
+              입력 초기화
+            </button>
           </div>
         </form>
         <p id="message" role="status" aria-live="polite"></p>
@@ -68,7 +103,9 @@
         <h2>등록 도서 목록 <span class="badge" id="book-count">3</span></h2>
         <div class="table-scroll">
           <table>
-            <caption class="sr-only">등록 도서 정보와 수정 및 삭제 버튼</caption>
+            <caption class="sr-only">
+              등록 도서 정보와 수정 및 삭제 버튼
+            </caption>
             <thead>
               <tr>
                 <th scope="col">ID</th>
@@ -84,62 +121,93 @@
           </table>
         </div>
       </section>
-      <p class="note">연습용 가상 도서 3권으로 시작합니다. 새로고침하면 변경 내용이 사라집니다.</p>
+      <p class="note">
+        연습용 가상 도서 3권으로 시작합니다. 새로고침하면 변경 내용이
+        사라집니다.
+      </p>
     </main>
     <footer class="wrap">HTML · CSS · JavaScript 학습용 도서관리</footer>
     <script>
       let books = [
-        { id: 1, title: '처음 배우는 웹', author: '김하늘', category: 'IT', publisher: '배움출판', price: 18000 },
-        { id: 2, title: '작은 숲의 이야기', author: '이봄', category: '문학', publisher: '숲출판', price: 12000 },
-        { id: 3, title: '일상 속 과학', author: '박별', category: '과학', publisher: '탐구출판', price: 15000 }
+        {
+          id: 1,
+          title: "처음 배우는 웹",
+          author: "김하늘",
+          category: "IT",
+          publisher: "배움출판",
+          price: 18000,
+        },
+        {
+          id: 2,
+          title: "작은 숲의 이야기",
+          author: "이봄",
+          category: "문학",
+          publisher: "숲출판",
+          price: 12000,
+        },
+        {
+          id: 3,
+          title: "일상 속 과학",
+          author: "박별",
+          category: "과학",
+          publisher: "탐구출판",
+          price: 15000,
+        },
       ];
       let nextId = 4;
       let editingId = null; // 수정 중인 도서 ID
-      const form = document.querySelector('#book-form');
-      const titleInput = document.querySelector('#title');
-      const authorInput = document.querySelector('#author');
-      const categoryInput = document.querySelector('#category');
-      const publisherInput = document.querySelector('#publisher');
-      const priceInput = document.querySelector('#price');
-      const bookList = document.querySelector('#book-list');
-      const message = document.querySelector('#message');
-      const saveButton = document.querySelector('#save-button');
-      const resetButton = document.querySelector('#reset-button');
+      const form = document.querySelector("#book-form");
+      const titleInput = document.querySelector("#title");
+      const authorInput = document.querySelector("#author");
+      const categoryInput = document.querySelector("#category");
+      const publisherInput = document.querySelector("#publisher");
+      const priceInput = document.querySelector("#price");
+      const bookList = document.querySelector("#book-list");
+      const message = document.querySelector("#message");
+      const saveButton = document.querySelector("#save-button");
+      const resetButton = document.querySelector("#reset-button");
 
       function renderBooks() {
-        bookList.textContent = '';
-        document.querySelector('#book-count').textContent = books.length;
+        bookList.textContent = "";
+        document.querySelector("#book-count").textContent = books.length;
         if (books.length === 0) {
-          const row = document.createElement('tr');
-          const cell = document.createElement('td');
+          const row = document.createElement("tr");
+          const cell = document.createElement("td");
           cell.colSpan = 7;
-          cell.textContent = '등록된 도서가 없습니다. 새 도서를 추가해 보세요.';
+          cell.textContent = "등록된 도서가 없습니다. 새 도서를 추가해 보세요.";
           row.append(cell);
           bookList.append(row);
         }
         books.forEach(function (book) {
-          const row = document.createElement('tr');
-          const values = [book.id, book.title, book.author, book.category, book.publisher, book.price.toLocaleString('ko-KR') + '원'];
+          const row = document.createElement("tr");
+          const values = [
+            book.id,
+            book.title,
+            book.author,
+            book.category,
+            book.publisher,
+            book.price.toLocaleString("ko-KR") + "원",
+          ];
           values.forEach(function (value) {
-            const cell = document.createElement('td');
+            const cell = document.createElement("td");
             cell.textContent = value;
             row.append(cell);
           });
-          const controls = document.createElement('td');
-          const editButton = document.createElement('button');
-          editButton.type = 'button';
-          editButton.className = 'secondary';
-          editButton.textContent = '수정';
-          editButton.setAttribute('aria-label', book.title + ' 수정');
-          editButton.addEventListener('click', function () {
+          const controls = document.createElement("td");
+          const editButton = document.createElement("button");
+          editButton.type = "button";
+          editButton.className = "secondary";
+          editButton.textContent = "수정";
+          editButton.setAttribute("aria-label", book.title + " 수정");
+          editButton.addEventListener("click", function () {
             startEdit(book.id);
           });
-          const deleteButton = document.createElement('button');
-          deleteButton.type = 'button';
-          deleteButton.className = 'danger';
-          deleteButton.textContent = '삭제';
-          deleteButton.setAttribute('aria-label', book.title + ' 삭제');
-          deleteButton.addEventListener('click', function () {
+          const deleteButton = document.createElement("button");
+          deleteButton.type = "button";
+          deleteButton.className = "danger";
+          deleteButton.textContent = "삭제";
+          deleteButton.setAttribute("aria-label", book.title + " 삭제");
+          deleteButton.addEventListener("click", function () {
             deleteBook(book.id);
           });
           controls.append(editButton, deleteButton);
@@ -151,9 +219,9 @@
       function resetForm() {
         form.reset();
         editingId = null;
-        document.querySelector('#form-heading').textContent = '도서 등록';
-        saveButton.textContent = '도서 추가';
-        resetButton.textContent = '입력 초기화';
+        document.querySelector("#form-heading").textContent = "도서 등록";
+        saveButton.textContent = "도서 추가";
+        resetButton.textContent = "입력 초기화";
       }
 
       function startEdit(id) {
@@ -167,33 +235,44 @@
         categoryInput.value = book.category;
         publisherInput.value = book.publisher;
         priceInput.value = book.price;
-        document.querySelector('#form-heading').textContent = '도서 수정 · ID ' + id;
-        saveButton.textContent = '수정 저장';
-        resetButton.textContent = '수정 취소';
-        message.textContent = '정보를 변경한 후 수정 저장을 누르세요.';
+        document.querySelector("#form-heading").textContent =
+          "도서 수정 · ID " + id;
+        saveButton.textContent = "수정 저장";
+        resetButton.textContent = "수정 취소";
+        message.textContent = "정보를 변경한 후 수정 저장을 누르세요.";
         titleInput.focus();
       }
 
       function validate(data, rawPrice) {
-        if (!data.title || !data.author || !data.publisher || !data.category || rawPrice === '') {
-          return '모든 항목을 입력하세요. 공백만 입력할 수 없습니다.';
+        if (
+          !data.title ||
+          !data.author ||
+          !data.publisher ||
+          !data.category ||
+          rawPrice === ""
+        ) {
+          return "모든 항목을 입력하세요. 공백만 입력할 수 없습니다.";
         }
         if (data.title.length < 2 || data.title.length > 100) {
-          return '도서명은 2~100자로 입력하세요.';
+          return "도서명은 2~100자로 입력하세요.";
         }
         if (data.author.length > 50 || data.publisher.length > 50) {
-          return '저자와 출판사는 각각 50자 이내로 입력하세요.';
+          return "저자와 출판사는 각각 50자 이내로 입력하세요.";
         }
-        if (!['문학', 'IT', '인문', '과학', '기타'].includes(data.category)) {
-          return '올바른 분류를 선택하세요.';
+        if (!["문학", "IT", "인문", "과학", "기타"].includes(data.category)) {
+          return "올바른 분류를 선택하세요.";
         }
-        if (!Number.isInteger(data.price) || data.price < 0 || data.price > 1000000) {
-          return '가격은 0~1,000,000원의 정수로 입력하세요.';
+        if (
+          !Number.isInteger(data.price) ||
+          data.price < 0 ||
+          data.price > 1000000
+        ) {
+          return "가격은 0~1,000,000원의 정수로 입력하세요.";
         }
-        return '';
+        return "";
       }
 
-      form.addEventListener('submit', function (event) {
+      form.addEventListener("submit", function (event) {
         event.preventDefault();
         const rawPrice = priceInput.value.trim();
         const data = {
@@ -201,7 +280,7 @@
           author: authorInput.value.trim(),
           category: categoryInput.value,
           publisher: publisherInput.value.trim(),
-          price: Number(rawPrice)
+          price: Number(rawPrice),
         };
         const error = validate(data, rawPrice);
         if (error) {
@@ -215,16 +294,16 @@
             author: data.author,
             category: data.category,
             publisher: data.publisher,
-            price: data.price
+            price: data.price,
           });
           nextId++;
-          message.textContent = '도서를 추가했습니다.';
+          message.textContent = "도서를 추가했습니다.";
         } else {
           const book = books.find(function (book) {
             return book.id === editingId;
           });
           if (!book) {
-            message.textContent = '수정할 도서를 찾을 수 없습니다.';
+            message.textContent = "수정할 도서를 찾을 수 없습니다.";
             return;
           }
           book.title = data.title;
@@ -232,7 +311,7 @@
           book.category = data.category;
           book.publisher = data.publisher;
           book.price = data.price;
-          message.textContent = '도서 정보를 수정했습니다.';
+          message.textContent = "도서 정보를 수정했습니다.";
         }
         resetForm();
         renderBooks();
@@ -243,8 +322,8 @@
           return book.id === id;
         });
         if (!book) return;
-        if (!confirm('「' + book.title + '」 도서를 삭제하시겠습니까?')) {
-          message.textContent = '삭제를 취소했습니다.';
+        if (!confirm("「" + book.title + "」 도서를 삭제하시겠습니까?")) {
+          message.textContent = "삭제를 취소했습니다.";
           return;
         }
         books = books.filter(function (book) {
@@ -252,13 +331,15 @@
         });
         if (editingId === id) resetForm();
         renderBooks();
-        message.textContent = '도서를 삭제했습니다.';
+        message.textContent = "도서를 삭제했습니다.";
       }
 
-      resetButton.addEventListener('click', function () {
+      resetButton.addEventListener("click", function () {
         const wasEditing = editingId !== null;
         resetForm();
-        message.textContent = wasEditing ? '수정을 취소했습니다. 기존 정보는 유지됩니다.' : '입력창을 초기화했습니다.';
+        message.textContent = wasEditing
+          ? "수정을 취소했습니다. 기존 정보는 유지됩니다."
+          : "입력창을 초기화했습니다.";
       });
       renderBooks();
     </script>

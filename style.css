@@ -1,0 +1,290 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #f5f6f3;
+  color: #26372f;
+  font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  line-height: 1.6;
+}
+
+.wrap {
+  width: min(1100px, 92%);
+  margin: 0 auto;
+}
+
+header {
+  background: #fff;
+  border-bottom: 1px solid #dce3dd;
+  padding: 25px 0 0;
+}
+
+h1 {
+  font-size: 28px;
+  margin: 0 0 18px;
+}
+
+h2 {
+  font-size: 22px;
+  margin: 0 0 12px;
+}
+
+p {
+  margin-top: 0;
+}
+
+.eyebrow {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #516b5c;
+  margin-bottom: 8px;
+}
+
+nav {
+  display: flex;
+  gap: 28px;
+  padding: 8px 0 16px;
+  flex-wrap: wrap;
+}
+
+a {
+  color: #285b43;
+  text-underline-offset: 5px;
+}
+
+nav a {
+  text-decoration: none;
+  font-weight: 600;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+.intro {
+  padding: 36px 0 12px;
+}
+
+.intro h2 {
+  font-size: clamp(27px, 4vw, 38px);
+  line-height: 1.35;
+}
+
+.panel {
+  background: white;
+  border: 1px solid #dce3dd;
+  padding: 24px;
+  border-radius: 12px;
+  margin-bottom: 22px;
+  min-width: 0;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+}
+
+.step {
+  font-size: 28px;
+  color: #778e80;
+}
+
+.note, footer {
+  color: #57665e;
+  font-size: 14px;
+}
+
+footer {
+  padding: 24px 0;
+  border-top: 1px solid #dce3dd;
+  margin-top: 30px !important;
+}
+
+label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+input, select {
+  width: 100%;
+  min-width: 0;
+  min-height: 44px;
+  padding: 10px 12px;
+  border: 1px solid #aebcb3;
+  border-radius: 6px;
+  background: #fff;
+  color: #26372f;
+  font: inherit;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+button, .button {
+  display: inline-block;
+  padding: 10px 16px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  background: #285b43;
+  color: #fff;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+button:hover, .button:hover {
+  background: #19402e;
+}
+
+.secondary {
+  background: #edf2ee;
+  color: #2d503c;
+  border-color: #c8d5cb;
+}
+
+.secondary:hover {
+  background: #dce8df;
+}
+
+.danger {
+  color: #943b32;
+  background: #fff0ed;
+  border-color: #ecc8c2;
+}
+
+.danger:hover {
+  background: #f8dcd7;
+}
+
+:focus-visible {
+  outline: 3px solid #bc8b2b;
+  outline-offset: 3px;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 22px;
+  flex-wrap: wrap;
+}
+
+#message {
+  min-height: 26px;
+  margin: 15px 0 0;
+  color: #6a441b;
+  font-weight: 600;
+}
+
+.badge {
+  display: inline-block;
+  background: #edf2ee;
+  border-radius: 20px;
+  font-size: 14px;
+  padding: 2px 10px;
+  vertical-align: middle;
+}
+
+.table-scroll {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 790px;
+  font-size: 14px;
+}
+
+th {
+  background: #f1f5f1;
+  text-align: left;
+}
+
+th, td {
+  padding: 14px 10px;
+  border-bottom: 1px solid #e0e7e1;
+  overflow-wrap: anywhere;
+}
+
+td:nth-child(2) {
+  max-width: 250px;
+}
+
+td:last-child {
+  white-space: nowrap;
+}
+
+td button {
+  padding: 6px 10px;
+  margin-right: 5px;
+  font-size: 13px;
+}
+
+.inline {
+  display: flex;
+  gap: 10px;
+}
+
+.inline input {
+  flex: 1;
+}
+
+.inline button {
+  white-space: nowrap;
+}
+
+.item-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.item-list li {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #e0e7e1;
+  padding: 12px 0;
+}
+
+.item-list span {
+  overflow-wrap: anywhere;
+  min-width: 0;
+}
+
+.item-list button {
+  flex-shrink: 0;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+}
+
+@media (max-width: 650px) {
+  .cards, .form-grid {
+    grid-template-columns: 1fr;
+  }
+  .panel {
+    padding: 18px;
+  }
+  .inline {
+    flex-wrap: wrap;
+  }
+  .inline input {
+    flex-basis: 100%;
+  }
+}

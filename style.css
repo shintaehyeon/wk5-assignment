@@ -253,6 +253,16 @@ td {
   overflow-wrap: anywhere;
 }
 
+tbody tr:hover {
+  background: var(--blue-soft);
+}
+
+th:nth-child(6),
+td:nth-child(6) {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
 td:nth-child(2) {
   max-width: 250px;
 }

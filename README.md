@@ -20,7 +20,7 @@ JavaScript 배열을 사용해 도서를 추가하고, 목록을 확인하고, �
 
 ## 타깃 홈페이지
 
-[포항시립도서관 홈페이지](https://phlib.pohang.go.kr/phlib/index.do)를 참고해 도서관 주제의 페이지를 구성했습니다.
+[포항도서관 자료검색 페이지](https://barobook.pohang.go.kr:444/booksearch/?page_id=search)를 타깃 홈페이지로 참고해 도서관 주제의 페이지를 구성했습니다.
 
 ## 도서관리 기능
 

@@ -100,7 +100,8 @@ nav a:hover {
   background: white;
   border: 1px solid var(--border);
   padding: 24px;
-  border-radius: 12px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(32, 60, 79, 0.06);
   margin-bottom: 22px;
   min-width: 0;
 }

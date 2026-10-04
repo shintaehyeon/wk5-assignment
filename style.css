@@ -111,6 +111,16 @@ nav a:hover {
   gap: 22px;
 }
 
+.cards .panel {
+  transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.cards .panel:hover,
+.cards .panel:focus-within {
+  border-color: var(--blue-border);
+  box-shadow: 0 5px 16px rgba(32, 60, 79, 0.1);
+}
+
 .step {
   font-size: 28px;
   color: var(--step);
